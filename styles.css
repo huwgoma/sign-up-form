@@ -8,8 +8,14 @@
     --off-black: rgb(18, 18, 18);
     --translucent-black: rgba(0, 0, 0, 0.5);
     
-    --white: rgb(260, 260, 260);
+    --white: rgb(255, 255, 255);
     --off-white: rgb(250, 250, 250);
+
+    --off-gray: rgba(211, 211, 211, 0.918);
+
+    --off-blue: rgb(0, 60, 255);
+
+    --red: rgb(255, 0, 0);
 }
 
 a:visited {
@@ -102,9 +108,65 @@ body {
     
     padding: var(--form-padding);
     padding-top: 16vh;
-    border: 1px solid black;
 }
 
 .form-header p {
     width: min(55ch, 100%);
+}
+
+/* Form */
+.form-div {
+    padding: 0 var(--form-padding);
+    background-color: var(--white);
+    box-shadow: 0 3px 5px var(--off-gray);
+}
+
+.form-div h3 {
+    padding: 20px 0;
+}
+
+.form-div form {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.5rem 4rem;
+    padding-bottom: 25px;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 33%;
+}
+
+.form-input label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    color: var(--off-black);
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='password'] {
+    border: 1px solid var(--off-gray);
+    background-color: var(--off-white);
+    padding: 4px;
+    border-radius: 5px;
+}
+
+:is(input[type='text'], input[type='email'], input[type='tel'], input[type='password']):focus {
+    outline: none;
+    border: 1px solid var(--off-blue);
+    box-shadow: 3px 3px 5px var(--off-gray);
+}
+
+input[type="password"].pwd-error {
+    border: 1px solid var(--red);
+}
+
+input[type="password"].pwd-error + span::after {
+    content: "*Passwords do not match";
+    font-size: 0.7rem;
+    color: var(--red);
 }
