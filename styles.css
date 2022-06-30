@@ -198,14 +198,19 @@ input[type="password"].pwd-error + span::after {
 /* When the page loads, do not highlight any fields (that's annoying) */
 /* Highlight fields(both valid/invalid) only when the input does not have focus AND is not empty*/
 
-/* For name fields, which are only invalid if they are empty: validate at attempted form submission */
 /* Email: When the input is not in focus AND its placeholder is not shown, check if it is invalid or not*/
 
 /* Phone - Not required: :valid by default; highlight it only when it does not have focus and its placeholder is not showing */
 
 /* Password: #pwd's value must match #pwd-confirm's value for #pwd/#pwd-confirm to be considered valid */
 
-input[type='text'].required:invalid {
+/* Name Fields - Add .required on blur event if the input is empty */
+:is(input[type='text'], input[type='email']).required:invalid {
+    border: 1px solid var(--invalid-red);
+}
+
+/* Email - Use built-in HTML5 validation; only show invalid when the input is not focused */
+input[type='email']:not(:focus):not(:placeholder-shown):invalid {
     border: 1px solid var(--invalid-red);
 }
 

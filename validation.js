@@ -11,3 +11,6 @@ fname.addEventListener('blur', toggleRequiredClass);
 
 const lname = document.getElementById('lname');
 lname.addEventListener('blur', toggleRequiredClass);
+
+const email = document.getElementById('email');
+email.addEventListener('blur', toggleRequiredClass);
