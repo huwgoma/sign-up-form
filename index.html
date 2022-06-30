@@ -48,14 +48,16 @@
                     </div>
 
                     <div class="form-input">
-                        <label for="pwd">PASSWORD</label>
-                        <input id="pwd" name="pwd" type="password" required class="pwd-error">
+                        <label for="pwd">PASSWORD*</label>
+                        <input id="pwd" name="pwd" type="password" 
+                            pattern="(?=^.{8,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
                         <span></span>
                     </div>
 
                     <div class="form-input">
-                        <label for="pwd-confirm">CONFIRM PASSWORD</label>
-                        <input id="pwd-confirm" type="password" required class="pwd-error">
+                        <label for="pwd-confirm">CONFIRM PASSWORD*</label>
+                        <input id="pwd-confirm" type="password" required>
+                        <span></span>
                     </div>
                 </form>
             </div>
@@ -65,5 +67,6 @@
             </div>
         </div>
     </div>
+    <script src="validation.js"></script>
 </body>
 </html>

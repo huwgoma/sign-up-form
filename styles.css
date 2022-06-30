@@ -19,7 +19,8 @@ html, body {
 
     --off-blue: rgb(0, 60, 255);
 
-    --red: rgb(255, 0, 0);
+    --invalid-red: rgb(255, 0, 0);
+    --valid-green: rgb(22, 201, 22);
 
     --leaf-green: #596D48;
     --hover-green: #106108;
@@ -62,6 +63,7 @@ a:hover{
     --form-panel-width: calc(100% - var(--image-panel-width));
 }
 
+/* ==================== */
 /* Left Panel (Image and Logo) */
 .image-panel {
     flex-basis: var(--image-panel-width);
@@ -104,7 +106,7 @@ a:hover{
     right: 0;
 }
 
-
+/* ==================== */
 /* Right Side - Form Panel */
 .form-panel {
     flex-basis: var(--form-panel-width);
@@ -118,6 +120,7 @@ a:hover{
     width: min(55ch, 100%);
 }
 
+/* ==================== */
 /* Form Header */
 .form-header {
     font-weight: 600;
@@ -133,6 +136,7 @@ a:hover{
     margin-top: 6rem;
 }
 
+/* ==================== */
 /* Form */
 .form-div {
     padding: 0 var(--form-padding);
@@ -180,17 +184,52 @@ input[type='password'] {
     box-shadow: 3px 3px 5px var(--off-gray);
 }
 
-input[type="password"].pwd-error {
-    border: 1px solid var(--red);
+#pwd + span::after {
+    content: "*Password must be at least 8 characters, have at least 1 uppercase character, and at least 1 number.";
+    font-size: 0.7rem;
 }
 
-input[type="password"].pwd-error + span::after {
+/* Validation CSS */
+/* When the page loads, do not highlight any fields (that's annoying) */
+
+/* Required Fields - Add .required on blur event if the input is empty */
+:is(input[type='text'], input[type='email']).required:invalid {
+    border: 1px solid var(--invalid-red);
+}
+
+/* Email - Use built-in HTML5 validation; only show invalid when the input is not focused */
+input[type='email']:not(:focus):not(:placeholder-shown):invalid {
+    border: 1px solid var(--invalid-red);
+}
+
+/* Highlight Valid Fields that are not focused and not empty */
+input:not(:focus):not(:placeholder-shown):valid {
+    border: 1px solid var(--valid-green);
+}
+
+/* Password Validation */
+input[type="password"]:invalid {
+    border: 1px solid var(--invalid-red);
+}
+/* pwd: Validate against a regex */
+input[type="password"]:valid {
+    border: 1px solid var(--valid-green);
+}
+
+#pwd-confirm:invalid + span::after {
     content: "*Passwords do not match";
     font-size: 0.7rem;
-    color: var(--red);
+    color: var(--invalid-red);
+}
+
+#pwd-confirm:valid + span::after {
+    content: "*Passwords match!";
+    font-size: 0.7rem;
+    color: var(--valid-green);
 }
 
 
+/* ==================== */
 /* Form Footer */
 .form-footer {
     padding: var(--form-padding);
