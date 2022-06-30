@@ -19,7 +19,8 @@ html, body {
 
     --off-blue: rgb(0, 60, 255);
 
-    --red: rgb(255, 0, 0);
+    --invalid-red: rgb(255, 0, 0);
+    --valid-green: rgb(22, 201, 22);
 
     --leaf-green: #596D48;
     --hover-green: #106108;
@@ -184,13 +185,13 @@ input[type='password'] {
 }
 
 input[type="password"].pwd-error {
-    border: 1px solid var(--red);
+    border: 1px solid var(--invalid-red);
 }
 
 input[type="password"].pwd-error + span::after {
     content: "*Passwords do not match";
     font-size: 0.7rem;
-    color: var(--red);
+    color: var(--invalid-red);
 }
 
 /* Validation CSS - Requirements */
@@ -205,9 +206,13 @@ input[type="password"].pwd-error + span::after {
 /* Password: #pwd's value must match #pwd-confirm's value for #pwd/#pwd-confirm to be considered valid */
 
 input[type='text'].required:invalid {
-    border: 2px solid red;
+    border: 1px solid var(--invalid-red);
 }
 
+/* Highlight Valid Fields that are not focused and not empty */
+input:not(:focus):not(:placeholder-shown):valid {
+    border: 1px solid var(--valid-green);
+}
 
 
 /* ==================== */
