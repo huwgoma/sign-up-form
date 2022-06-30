@@ -16,11 +16,12 @@ email.addEventListener('blur', toggleRequiredClass);
 
 
 // Validate Password Fields 
-//for Match
 const pwd = document.getElementById('pwd');
 const pwdConfirm = document.getElementById('pwd-confirm');
 
-pwdConfirm.addEventListener('keyup', pwdInputMatch);
+// Check if passwords match when pwdConfirm keyup occurs, or when pwd's input is changed
+pwdConfirm.addEventListener('input', pwdInputMatch);
+pwd.addEventListener('input', pwdInputMatch);
 
 function pwdInputMatch(event) {
     let inputField = event.target;
