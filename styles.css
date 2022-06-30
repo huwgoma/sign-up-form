@@ -118,12 +118,19 @@ a:hover{
     width: min(55ch, 100%);
 }
 
+/* Form Header */
 .form-header {
     font-weight: 600;
     font-size: 1.2rem;
-    
     padding: var(--form-padding);
-    padding-top: 16vh;
+}
+
+.form-header p {
+    margin-top: 1rem;
+}
+
+.form-header p:first-child {
+    margin-top: 6rem;
 }
 
 /* Form */
