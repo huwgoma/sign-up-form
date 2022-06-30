@@ -189,13 +189,8 @@ input[type='password'] {
     font-size: 0.7rem;
 }
 
-/* Validation CSS - Requirements */
+/* Validation CSS */
 /* When the page loads, do not highlight any fields (that's annoying) */
-/* Highlight fields(both valid/invalid) only when the input does not have focus AND is not empty*/
-
-/* Phone - Not required: :valid by default; highlight it only when it does not have focus and its placeholder is not showing */
-
-/* Password: #pwd's value must match #pwd-confirm's value for #pwd/#pwd-confirm to be considered valid */
 
 /* Required Fields - Add .required on blur event if the input is empty */
 :is(input[type='text'], input[type='email']).required:invalid {
@@ -217,16 +212,21 @@ input[type="password"]:invalid {
     border: 1px solid var(--invalid-red);
 }
 /* pwd: Validate against a regex */
-#pwd:valid {
+input[type="password"]:valid {
     border: 1px solid var(--valid-green);
 }
 
-#pwd-confirm.pwd-error + span::after {
+#pwd-confirm:invalid + span::after {
     content: "*Passwords do not match";
     font-size: 0.7rem;
     color: var(--invalid-red);
 }
 
+#pwd-confirm:valid + span::after {
+    content: "*Passwords match!";
+    font-size: 0.7rem;
+    color: var(--valid-green);
+}
 
 
 /* ==================== */

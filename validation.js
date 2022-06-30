@@ -19,3 +19,17 @@ email.addEventListener('blur', toggleRequiredClass);
 //for Match
 const pwd = document.getElementById('pwd');
 const pwdConfirm = document.getElementById('pwd-confirm');
+
+pwdConfirm.addEventListener('keyup', pwdInputMatch);
+
+function pwdInputMatch(event) {
+    let inputField = event.target;
+    let compareField = inputField == pwdConfirm ? pwd : pwdConfirm;
+    
+    // If pwdConfirm's value matches pwd's value, set #pwd-confirm's validity to valid
+    if (inputField.value == compareField.value) {
+        pwdConfirm.setCustomValidity("");
+    } else {
+        pwdConfirm.setCustomValidity("Passwords do not match");
+    }
+}
