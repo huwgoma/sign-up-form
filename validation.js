@@ -1,5 +1,4 @@
-/* Validate Name Fields on Blur */
-
+// Validate Required Fields on Blur
 // Add/Toggle on class="required" if input's value is empty
 function toggleRequiredClass(e){
     let input = e.target;
@@ -14,3 +13,9 @@ lname.addEventListener('blur', toggleRequiredClass);
 
 const email = document.getElementById('email');
 email.addEventListener('blur', toggleRequiredClass);
+
+
+// Validate Password Fields 
+//for Match
+const pwd = document.getElementById('pwd');
+const pwdConfirm = document.getElementById('pwd-confirm');
