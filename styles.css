@@ -22,6 +22,8 @@ html, body {
     --red: rgb(255, 0, 0);
 
     --leaf-green: #596D48;
+    --hover-green: #106108;
+    --active-green: #093d04;
 }
 
 body {
@@ -112,16 +114,16 @@ a:hover{
     --form-padding: 35px;
 }
 
+.form-panel p {
+    width: min(55ch, 100%);
+}
+
 .form-header {
     font-weight: 600;
     font-size: 1.2rem;
     
     padding: var(--form-padding);
     padding-top: 16vh;
-}
-
-.form-header p {
-    width: min(55ch, 100%);
 }
 
 /* Form */
@@ -196,4 +198,26 @@ input[type="password"].pwd-error + span::after {
 
     padding: 15px 40px 12px;
     border-radius: 8px;
+    
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: var(--hover-green);
+}
+
+.submit-btn:active {
+    background: var(--active-green);
+}
+
+.form-footer p {
+    margin-top: 20px;
+}
+
+.form-footer a {
+    color: var(--leaf-green);
+}
+
+.form-footer a:hover {
+    color: var(--hover-green);
 }
