@@ -185,7 +185,7 @@ input[type='password'] {
 }
 
 #pwd + span::after {
-    content: "*Password must be at least 8 characters, have at least 1 uppercase character, and at least 1 number.";
+    content: "*Password must be at least 8 characters, have at least 1 lowercase and 1 uppercase character, and at least 1 number.";
     font-size: 0.7rem;
 }
 
