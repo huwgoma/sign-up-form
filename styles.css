@@ -62,6 +62,7 @@ a:hover{
     --form-panel-width: calc(100% - var(--image-panel-width));
 }
 
+/* ==================== */
 /* Left Panel (Image and Logo) */
 .image-panel {
     flex-basis: var(--image-panel-width);
@@ -104,7 +105,7 @@ a:hover{
     right: 0;
 }
 
-
+/* ==================== */
 /* Right Side - Form Panel */
 .form-panel {
     flex-basis: var(--form-panel-width);
@@ -118,6 +119,7 @@ a:hover{
     width: min(55ch, 100%);
 }
 
+/* ==================== */
 /* Form Header */
 .form-header {
     font-weight: 600;
@@ -133,6 +135,7 @@ a:hover{
     margin-top: 6rem;
 }
 
+/* ==================== */
 /* Form */
 .form-div {
     padding: 0 var(--form-padding);
@@ -190,7 +193,24 @@ input[type="password"].pwd-error + span::after {
     color: var(--red);
 }
 
+/* Validation CSS - Requirements */
+/* When the page loads, do not highlight any fields (that's annoying) */
+/* Highlight fields(both valid/invalid) only when the input does not have focus AND is not empty*/
 
+/* For name fields, which are only invalid if they are empty: validate at attempted form submission */
+/* Email: When the input is not in focus AND its placeholder is not shown, check if it is invalid or not*/
+
+/* Phone - Not required: :valid by default; highlight it only when it does not have focus and its placeholder is not showing */
+
+/* Password: #pwd's value must match #pwd-confirm's value for #pwd/#pwd-confirm to be considered valid */
+
+input[type='text'].required:invalid {
+    border: 2px solid red;
+}
+
+
+
+/* ==================== */
 /* Form Footer */
 .form-footer {
     padding: var(--form-padding);
