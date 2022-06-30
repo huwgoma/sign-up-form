@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 :root {
     --off-black: rgb(18, 18, 18);
     --translucent-black: rgba(0, 0, 0, 0.5);
@@ -16,6 +20,12 @@
     --off-blue: rgb(0, 60, 255);
 
     --red: rgb(255, 0, 0);
+
+    --leaf-green: #596D48;
+}
+
+body {
+    background-color: var(--off-black);
 }
 
 a:visited {
@@ -34,16 +44,16 @@ a:hover{
     font-weight: normal;
     font-style: normal;
 }
-/* At 600px, have the form overlap the left panel entirely?*/
-body {
-    background-color: var(--off-black);
-}
 
 .container {
+    margin: auto;
     background-color: var(--white);
     width: clamp(600px, 65vw, 1200px);
-    height: 100vh;
-    margin: auto;
+
+    /* Ensure the container stretches to fill the page's height */
+    min-height: 100%;
+    /* Ensure the container stretches to accommodate the form's content */
+    height: auto;
 
     display: flex;
     --image-panel-width: 37%;
@@ -169,4 +179,21 @@ input[type="password"].pwd-error + span::after {
     content: "*Passwords do not match";
     font-size: 0.7rem;
     color: var(--red);
+}
+
+
+/* Form Footer */
+.form-footer {
+    padding: var(--form-padding);
+}
+
+.submit-btn {
+    background: var(--leaf-green);
+    color: var(--white);
+    font-size: 0.9rem;
+    font-family: inherit;
+    font-weight: bold;
+
+    padding: 15px 40px 12px;
+    border-radius: 8px;
 }
